@@ -1,0 +1,10 @@
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+
+window.StatusBar {
+    > box {
+        background: $bg-color;
+        color: $fg-color;
+        font-weight: bold;
+    }
+}

@@ -5,6 +5,7 @@ from gi.repository import Gtk, Astal, GObject, AstalIO, GLib
 class StatusBar(Astal.Window):
     __gtype_name__ = "StatusBar"
 
+    calendar = GObject.Property(type=str)
     clock = GObject.Property(type=str)
 
     def __init__(self):
@@ -17,6 +18,10 @@ class StatusBar(Astal.Window):
             visible=True,
         )
 
+        # calendar
+        self.calendar = GLib.DateTime.new_now_local().format("%b %d")
+
+        # update the clock every 60secs
         timer = AstalIO.Time.interval(60000, self.set_clock)
         self.connect("destroy", lambda _: timer.cancel())
 

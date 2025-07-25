@@ -2,11 +2,15 @@ using Gtk 4.0;
 using Astal 4.0;
 
 template $StatusBar: Astal.Window {
-  CenterBox centerbox {
-    center-widget: Box {
-      Label {
-        label: bind template.clock;
-      }
-    };
-  }
+    CenterBox centerbox {
+        center-widget: Box {
+            spacing: 4;
+            Label {
+                label: bind template.calendar;
+            }
+            Label {
+                label: bind template.clock;
+            }
+        };
+    }
 }

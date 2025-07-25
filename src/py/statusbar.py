@@ -17,8 +17,8 @@ class StatusBar(Astal.Window):
             visible=True,
         )
 
-        timer = AstalIO.Time.interval(1000, self.set_clock)
+        timer = AstalIO.Time.interval(60000, self.set_clock)
         self.connect("destroy", lambda _: timer.cancel())
 
     def set_clock(self):
-        self.clock = GLib.DateTime.new_now_local().format("%H:%M:%S")
+        self.clock = GLib.DateTime.new_now_local().format("%I:%M %p")
